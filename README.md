@@ -70,3 +70,45 @@ A simple web interface is created using Flask to allow users to input features a
 ## Conclusion
 
 The project successfully demonstrates the use of various regression models to predict crop yields based on historical data. The Decision Tree and KNN models show the best performance, indicating their suitability for this task. The project also includes a web interface for easy user interaction.
+
+
+## How to Run the Project
+
+To run the project after cloning the repository from GitHub, follow these steps:
+
+1. **Clone the Repository**:
+   ```sh
+   git clone <https://github.com/lestersinjacreater/Crop-yeild-prediction-model.git>
+   cd <repository-directory>
+
+2. **Set Up the Environment**:
+     Create a virtual environment (optional but recommended):
+     ```sh
+    python -m venv venv
+
+Activate the virtual environment:
+        **On Windows and macOS**:
+        ```sh
+        windows-venv\Scripts\activate
+        macOS-source venv/bin/activate
+
+
+
+3. **Install Dependencies:**:
+    ```sh 
+    pip install -r requirements.txt
+    
+4.    **Prepare the Dataset**: Ensure that your dataset (yield_df.csv) is in the correct location as expected by your code.
+        
+5. **Run the Flask Application**:
+   ```sh 
+   python app.py
+6.**Access the Application**:
+ Open your web browser and go to http://127.0.0.1:5000/ to access the application.
+
+7.**Use the Web Interface**:
+
+Enter the required features such as Year, Average Rainfall, Pesticides, Average Temperature, Area, and Item in the form provided on the web page.
+Click the "Predict" button to get the predicted crop yield.   
+
+
