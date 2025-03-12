@@ -2,7 +2,7 @@ from flask import Flask, request, render_template
 import numpy as np
 import pandas as pd
 import pickle
-import sklearn
+#import sklearn
 
 # Load the trained Decision Tree Regressor model
 dtr = pickle.load(open('dtr.pkl', 'rb'))
