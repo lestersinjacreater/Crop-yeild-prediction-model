@@ -26,39 +26,12 @@
 
     body {
       font-family: var(--font-family);
-      background: linear-gradient(135deg, #89f7fe, #66a6ff);
-      color: #333;
-      min-height: 100vh;
+      background-color: var(--bg-color);
     }
 
-    .container {
-      padding-top: 3rem;
-      padding-bottom: 3rem;
-    }
-
-    h1, h2 {
-      font-weight: 700;
-    }
-
-    /* Card with glassmorphism effect */
     .card {
-      background: var(--card-bg);
+      background-color: var(--card-bg);
       border: none;
-      border-radius: 15px;
-      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-    }
-
-    /* Stylish form controls */
-    .form-control {
-      background-color: rgba(255, 255, 255, 0.9);
-      border: 1px solid #ccc;
-      transition: border-color 0.3s, box-shadow 0.3s;
-    }
-    
-    .form-control:focus {
-      border-color: var(--primary-color);
       box-shadow: 0 0 8px rgba(74, 144, 226, 0.5);
     }
 
@@ -102,38 +75,6 @@
               <div class="form-floating">
                 <input type="number" class="form-control" id="Year" name="Year" value="2013" required placeholder="Year">
                 <label for="Year">Year</label>
-              </div>
-            </div>
-            
-            <!-- Input field for Average Rainfall -->
-            <div class="col-md-6">
-              <div class="form-floating">
-                <input type="number" class="form-control" id="rainfall" name="average_rain_fall_mm_per_year" required placeholder="Average Rainfall (mm/year)">
-                <label for="rainfall">Average Rainfall (mm/year)</label>
-              </div>
-            </div>
-            
-            <!-- Input field for Pesticides -->
-            <div class="col-md-6">
-              <div class="form-floating">
-                <input type="number" class="form-control" id="pesticides" name="pesticides_tonnes" required placeholder="Pesticides (tonnes)">
-                <label for="pesticides">Pesticides (tonnes)</label>
-              </div>
-            </div>
-            
-            <!-- Input field for Average Temperature -->
-            <div class="col-md-6">
-              <div class="form-floating">
-                <input type="number" class="form-control" id="avgTemp" name="avg_temp" required placeholder="Average Temperature (°C)">
-                <label for="avgTemp">Average Temperature (°C)</label>
-              </div>
-            </div>
-            
-            <!-- Input field for Area -->
-            <div class="col-md-6">
-              <div class="form-floating">
-                <input type="text" class="form-control" id="Area" name="Area" required placeholder="Area">
-                <label for="Area">Area</label>
               </div>
             </div>
             
