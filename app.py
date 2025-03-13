@@ -1,8 +1,7 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, jsonify
 import numpy as np
 import pandas as pd
 import pickle
-#import sklearn
 
 # Load the trained Decision Tree Regressor model
 dtr = pickle.load(open('dtr.pkl', 'rb'))
@@ -16,24 +15,20 @@ merged_df = pd.read_csv('c:/Users/User/Desktop/final year model/merged_dataset.c
 # Initialize the Flask app
 app = Flask(__name__)
 
-# Define the route for the home page
-@app.route('/')
-def index():
-    return render_template('index.html')
-
 # Define the route for making predictions
-@app.route("/predict", methods=['POST'])
+@app.route("/api/predict", methods=['POST'])
 def predict():
     if request.method == 'POST':
-        # Get the input features from the form
-        Year = int(request.form['Year'])
-        Item = request.form['Item']
+        # Get the input features from the JSON request
+        data = request.get_json()
+        Year = int(data['Year'])
+        Item = data['Item']
 
         # Filter the merged dataset to get the average values for the given year and item
         filtered_df = merged_df[(merged_df['Year'] == Year) & (merged_df['Item'] == Item)]
         
         if filtered_df.empty:
-            return render_template('index.html', prediction="No data available for the given year and item.")
+            return jsonify({"error": "No data available for the given year and item."}), 404
 
         # Calculate the mean values for the other features
         average_rain_fall_mm_per_year = filtered_df['average_rain_fall_mm_per_year'].mean()
@@ -50,8 +45,8 @@ def predict():
         # Make a prediction using the trained model
         prediction = dtr.predict(transformed_features).reshape(1, -1)
 
-        # Render the index.html template with the prediction result
-        return render_template('index.html', prediction=prediction[0][0])
+        # Return the prediction as a JSON response
+        return jsonify({"prediction": prediction[0][0]})
 
 # Run the Flask app
 if __name__ == "__main__":
